@@ -1,0 +1,38 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: ctfd-single-service
+spec:
+  template:
+    metadata:
+      # name: ctfd-single-service-1
+      annotations:
+        run.googleapis.com/cpu-throttling: "false"
+        run.googleapis.com/execution-environment: gen2
+        run.googleapis.com/cloudsql-instances: <project_id>:<region_name>:<cloud_sql_instance_name>
+    spec:
+      containers:
+      - name: ctfd
+        image: ctfd/ctfd:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: DATABASE_URL
+          value: mysql+pymysql://<db_user>:<db_pass>@/<db_name>?unix_socket=<socket_path>/<cloud_sql_instance_name>
+        - name: UPLOAD_FOLDER
+          value: /var/uploads
+        - name: REVERSE_PROXY
+          value: "true"
+        volumeMounts:
+        - mountPath: /var/uploads
+          name: uploads-volume
+      volumes:
+      - name: uploads-volume
+        csi:
+          driver: gcsfuse.run.googleapis.com
+          readOnly: False
+          volumeAttributes:
+           bucketName: <cloud_storage_bucket_name>
+  traffic:
+  - percent: 100
+    latestRevision: true
