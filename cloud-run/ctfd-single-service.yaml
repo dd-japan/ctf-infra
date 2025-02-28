@@ -9,7 +9,7 @@ metadata:
 spec:
   template:
     metadata:
-      # name: ctfd-single-revision-1
+      # name: ctfd-single-service-revision-1
       annotations:
         autoscaling.knative.dev/minScale: 1 # recommend more than 1
         autoscaling.knative.dev/maxScale: 100 # should be smaller
