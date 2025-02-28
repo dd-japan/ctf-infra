@@ -6,8 +6,7 @@ We use Cloud Run as a CTFd container server, Cloud SQL as a database and Cloud S
 
 ![CTFd_Google_Cloud](https://github.com/user-attachments/assets/836883dd-8279-4c0a-ba04-b826bbee67ec)
 
-
 ## Datadog Employees
-If you are using Datadog Sandbox project, we have guard rails.
+If you are using Datadog Sandbox project, we have a guardrail(Domain restricted sharing).
 
-As a workaround, add a tag that adapts to the guardrail's exclusion rules: `external-access:allowed` in the case of Cloud Run
+As a workaround, add a tag that adapts to the guardrail's exclusion rules: `external-access:allowed` in the case of Allowing unauthenticated Cloud Run invocations.
