@@ -1,7 +1,7 @@
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: ctfd-single-service
+  name: ctfd-single-container
   # annotations:
   #  run.googleapis.com/launch-stage: BETA
   #  run.googleapis.com/scalingMode: manual
@@ -9,7 +9,7 @@ metadata:
 spec:
   template:
     metadata:
-      # name: ctfd-single-service-revision-1
+      # name: ctfd-single-container-revision-1
       annotations:
         autoscaling.knative.dev/minScale: 1
         autoscaling.knative.dev/maxScale: 1
