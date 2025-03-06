@@ -6,7 +6,7 @@ We use Cloud Run as a CTFd container server, Cloud SQL as a database and Cloud S
 
 ![CTFd_Google_Cloud](https://github.com/user-attachments/assets/836883dd-8279-4c0a-ba04-b826bbee67ec)
 
-## CTFd　server configuration
+## CTFd server configuration
 CTFd documentation has the [configuration page](https://docs.ctfd.io/docs/deployment/configuration/).
 
 ## Datadog employees
