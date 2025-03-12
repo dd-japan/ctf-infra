@@ -1,5 +1,5 @@
 ---
-name: Custom issue template
+name: CTFd rough issues/proposals
 about: This template is for rough CTFd projcet issues and pending update proposals.
 title: ''
 labels: ''
