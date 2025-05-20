@@ -23,6 +23,9 @@ CTFd server has the login cache locally in a container w/o a Redis server. Redis
 #### Multiple container architecture
 ![image](https://github.com/user-attachments/assets/6fafed9e-8aa7-4dcf-bd70-ef4ef77cd9f9)
 
+### How to deploy CTFd server on Cloud Run
+
+
 ### CTFd server configuration
 CTFd documentation has the [configuration page](https://docs.ctfd.io/docs/deployment/configuration/).
 
