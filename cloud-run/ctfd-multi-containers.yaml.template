@@ -16,8 +16,8 @@ spec:
         run.googleapis.com/cpu-throttling: "false"
         run.googleapis.com/startup-cpu-boost: 'true'
         run.googleapis.com/execution-environment: gen2
-        run.googleapis.com/cloudsql-instances: <project_id>:<region_name>:<cloud_sql_instance_name>
-        run.googleapis.com/network-interfaces: '[{"network":"<vcp-name>","subnetwork":"<subnet_name>"}]'
+        run.googleapis.com/cloudsql-instances: ${PROJECT_ID}:${REGION_NAME}:${CLOUD_SQL_INSTANCE}
+        run.googleapis.com/network-interfaces: '[{"network":"${VPC}","subnetwork":"${SUBNET}"}]'
         run.googleapis.com/vpc-access-egress: private-ranges-only
     spec:
       containers:
@@ -27,9 +27,9 @@ spec:
         - containerPort: 8000
         env:
         - name: DATABASE_URL
-          value: mysql+pymysql://<db_user>:<db_pass>@/<db_name>?unix_socket=<socket_path>/<cloud_sql_instance_name>
+          value: mysql+pymysql://${DB_USER}:${DB_PASS}@/${DB_NAME}?unix_socket=/cloudsql/${PROJECT_ID}:${REGION_NAME}:${CLOUD_SQL_INSTANCE}
         - name: REDIS_URL
-          value: redis://:<redis_auth_strings>@<redis_cluster_endpoint>:6379
+          value: redis://:${REDIS_AUTH_STRINGS}@${REDIS_CLUSTER_ENDPOINT}:6379
         - name: UPLOAD_FOLDER
           value: /var/uploads
         - name: REVERSE_PROXY
@@ -43,7 +43,7 @@ spec:
           driver: gcsfuse.run.googleapis.com
           readOnly: False
           volumeAttributes:
-           bucketName: <cloud_storage_bucket_name>
+           bucketName: ${GCS_BUCKET}
   traffic:
   - percent: 100
     latestRevision: true
