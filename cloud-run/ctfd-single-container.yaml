@@ -25,7 +25,7 @@ spec:
         - containerPort: 8000
         env:
         - name: DATABASE_URL
-          value: mysql+pymysql://${DB_USER}:${DB_PASS}@/${DB_NAME}?unix_socket=/cloudsql/${CLOUD_SQL_INSTANCE}
+          value: mysql+pymysql://${DB_USER}:${DB_PASS}@/${DB_NAME}?unix_socket=/cloudsql/${PROJECT_ID}:${REGION_NAME}:${CLOUD_SQL_INSTANCE}
         - name: UPLOAD_FOLDER
           value: /var/uploads
         - name: REVERSE_PROXY
