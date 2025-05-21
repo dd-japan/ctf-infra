@@ -6,7 +6,7 @@ And also including terraform code for swagstore GKE cluster, CTFd Cloud Run and 
 ### CTFd on AWS(v1.0)
 
 #### Single EC2 architecture
-![image](https://github.com/user-attachments/assets/6ef5a435-fac9-43a4-86a3-a060664b1efe)
+<img width=25%><img src="https://github.com/user-attachments/assets/6ef5a435-fac9-43a4-86a3-a060664b1efe" width=50%>
 
 ### Datadog employees
 If you are in Datadog Sandbox AWS account, it has the limitation: AWS Config automatically delete extensive security group rules.
@@ -18,15 +18,18 @@ If there are many CTFd users, which are more than 10, Cloud Run are recommended 
 CTFd server has the login cache locally in a container w/o a Redis server. Redis server is necessary to avoid 403 error due to this.
 
 #### Single container architecture
-![image](https://github.com/user-attachments/assets/f6ec4e1b-d65a-43dc-ab51-6437845d899b)
+<img width=10%><img src="https://github.com/user-attachments/assets/f6ec4e1b-d65a-43dc-ab51-6437845d899b" width=80%>
 
 #### Multiple container architecture
-![image](https://github.com/user-attachments/assets/6fafed9e-8aa7-4dcf-bd70-ef4ef77cd9f9)
+<img width=10%><img src="https://github.com/user-attachments/assets/6fafed9e-8aa7-4dcf-bd70-ef4ef77cd9f9" width=80%>
 
 ### How to deploy CTFd server on Cloud Run
- - Open and authorize Google Cloud Shell
+#### Open and authorize Google Cloud Shell
+```bash:Cloud Shell
+gcloud auth login --no-launch-browser
+```
 
- - Clone the repository
+#### Clone the repository
 ```bash:Cloud Shell
 git clone https://github.com/dd-japan/ctf-infra.git
 ```
@@ -34,7 +37,7 @@ git clone https://github.com/dd-japan/ctf-infra.git
 cd ctf-infra/cloud-run/
 ```
 
- - Set environment variables
+#### Set environment variables
 ```bash:Cloud Shell
 export PROJECT_ID="<project_id>"
 export REGION="<region_name>"
@@ -45,7 +48,7 @@ export DB_NAME="<db_name>"
 exporot GCS_BUCKET="<cloud_storage_bucket_name>"
 ```
 
-- Deploy CTFd server on Cloud Run
+#### Deploy CTFd server on Cloud Run
 ```bash:Cloud Shell
 gcloud run service replace ctfd-single-container.yaml
 ```
