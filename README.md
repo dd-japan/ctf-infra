@@ -24,7 +24,31 @@ CTFd server has the login cache locally in a container w/o a Redis server. Redis
 ![image](https://github.com/user-attachments/assets/6fafed9e-8aa7-4dcf-bd70-ef4ef77cd9f9)
 
 ### How to deploy CTFd server on Cloud Run
+ - Open and authorize Google Cloud Shell
 
+ - Clone the repository
+```bash:Cloud Shell
+git clone https://github.com/dd-japan/ctf-infra.git
+```
+```bash:Cloud Shell
+cd ctf-infra/cloud-run/
+```
+
+ - Set environment variables
+```bash:Cloud Shell
+export PROJECT_ID="<project_id>"
+export REGION="<region_name>"
+export CLOUD_SQL_INSTANCE="<cloud_sql_instance_name>"
+export DB_USER="<db_user>"
+export DB_PASS="<db_pass>"
+export DB_NAME="<db_name>"
+exporot GCS_BUCKET="<cloud_storage_bucket_name>"
+```
+
+- Deploy CTFd server on Cloud Run
+```bash:Cloud Shell
+gcloud run service replace ctfd-single-container.yaml
+```
 
 ### CTFd server configuration
 CTFd documentation has the [configuration page](https://docs.ctfd.io/docs/deployment/configuration/).
