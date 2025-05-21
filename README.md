@@ -48,6 +48,10 @@ export DB_NAME="<db_name>"
 exporot GCS_BUCKET="<cloud_storage_bucket_name>"
 ```
 
+```bash:Cloud Shell
+envsubst <ctfd-single-container.yaml.tamplate> ctfd-single-container.yaml
+```
+
 #### Deploy CTFd server on Cloud Run
 ```bash:Cloud Shell
 gcloud run service replace ctfd-single-container.yaml
