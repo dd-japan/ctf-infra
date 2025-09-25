@@ -2,10 +2,10 @@ apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
   name: ctfd-single-container
-  # annotations:
-  #  run.googleapis.com/launch-stage: BETA
-  #  run.googleapis.com/scalingMode: manual
-  #  run.googleapis.com/manualInstanceCount: 10
+   annotations:
+    run.googleapis.com/launch-stage: BETA
+    run.googleapis.com/scalingMode: manual
+    run.googleapis.com/manualInstanceCount: 10
 spec:
   template:
     metadata:
