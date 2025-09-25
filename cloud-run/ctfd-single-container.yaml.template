@@ -15,6 +15,7 @@ spec:
         autoscaling.knative.dev/maxScale: "1"
         run.googleapis.com/cpu-throttling: "false"
         run.googleapis.com/startup-cpu-boost: 'true'
+        run.googleapis.com/sessionAffinity: 'true'
         run.googleapis.com/execution-environment: gen2
         run.googleapis.com/cloudsql-instances: ${PROJECT_ID}:${REGION_NAME}:${CLOUD_SQL_INSTANCE}
     spec:
